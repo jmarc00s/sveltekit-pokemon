@@ -1,5 +1,12 @@
 <script>
+	import Container from '$lib/components/template/Container.svelte';
+	import Navbar from '$lib/components/template/Navbar.svelte';
 	import '../app.css';
 </script>
 
-<slot />
+<main class="h-screen">
+	<Navbar />
+	<Container>
+		<slot />
+	</Container>
+</main>
