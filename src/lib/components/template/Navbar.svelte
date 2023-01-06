@@ -1,10 +1,23 @@
 <script lang="ts">
+	import { onMount, onDestroy } from 'svelte';
+
 	let showDropdown = false;
+	let ref: any = null;
 
 	const toggleShowDropdown = () => (showDropdown = !showDropdown);
+
+	const handleClickOutside = (target: EventTarget | null) => {
+		if (!ref || !target) return;
+
+		if (!ref.contains(target)) {
+			showDropdown = false;
+		}
+	};
 </script>
 
-<div class="navbar bg-base-100 border-b border-base-200 shadow-sm">
+<svelte:window on:click={({ target }) => handleClickOutside(target)} />
+
+<div class="navbar bg-base-100 border-b border-base-200 shadow-sm" bind:this={ref}>
 	<div class="navbar-start">
 		<div class="dropdown">
 			<!-- svelte-ignore a11y-label-has-associated-control -->
@@ -25,8 +38,8 @@
 			</button>
 			{#if showDropdown}
 				<ul class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-					<li><a href="/">Homepage</a></li>
-					<li><a href="/about">About</a></li>
+					<li><a on:click={toggleShowDropdown} href="/">Homepage</a></li>
+					<li><a on:click={toggleShowDropdown} href="/about">About</a></li>
 				</ul>
 			{/if}
 		</div>
