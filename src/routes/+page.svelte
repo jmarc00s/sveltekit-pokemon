@@ -1,11 +1,8 @@
 <script lang="ts">
+	import PokemonGrid from '$lib/components/PokemonGrid.svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 </script>
 
-{#each data.pokemons as { name }}
-	<p>
-		{name}
-	</p>
-{/each}
+<PokemonGrid pokemons={data.pokemons} />
