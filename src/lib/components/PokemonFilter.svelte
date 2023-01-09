@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
+
 	let filter = '';
 </script>
 
-<div class="flex gap-2">
+<form method="POST" action="?/filter" class="flex gap-2" use:enhance>
 	<input
 		class="input w-full border border-base-200"
 		placeholder="Filter pokemon..."
@@ -12,4 +14,4 @@
 		bind:value={filter}
 	/>
 	<button class="btn btn-primary" type="submit" disabled={!filter.length}>Filter</button>
-</div>
+</form>
