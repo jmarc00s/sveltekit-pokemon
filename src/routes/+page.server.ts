@@ -16,12 +16,12 @@ export const actions = {
 	default: async ({ request, fetch }: RequestEvent) => {
 		const data = await request.formData();
 
-		const filteredValue = data.get('filter');
+		const filteredValue = data.get('filter') as string;
 
 		const response = await fetch(`${API_URL}/pokemons/filter?filter=${filteredValue}`);
 
 		const pokemons = (await response.json()) as Pokemon[];
 
-		return { pokemons };
+		return { pokemons, filteredValue };
 	}
 };

@@ -8,10 +8,12 @@
 	export let form: ActionData;
 </script>
 
-<PokemonFilter />
-
 {#if form?.pokemons}
+	<h1 class="text-2xl font-semibold">
+		Filtered by: <span class="font-bold underline"> {form.filteredValue}</span>
+	</h1>
 	<PokemonGrid pokemons={form.pokemons} />
 {:else}
+	<PokemonFilter />
 	<PokemonGrid pokemons={data.pokemons} />
 {/if}
