@@ -5,13 +5,13 @@
 
 	export let data: PageData;
 
-	export let formData: ActionData;
+	export let form: ActionData;
 </script>
 
 <PokemonFilter />
 
-{#if formData?.pokemons}
-	<PokemonGrid pokemons={formData.pokemons} />
+{#if form?.pokemons}
+	<PokemonGrid pokemons={form.pokemons} />
 {:else}
 	<PokemonGrid pokemons={data.pokemons} />
 {/if}

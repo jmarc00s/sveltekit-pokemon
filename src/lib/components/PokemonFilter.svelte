@@ -4,7 +4,7 @@
 	let filter = '';
 </script>
 
-<form method="POST" action="?/filter" class="flex gap-2" use:enhance>
+<form method="POST" class="flex gap-2" use:enhance>
 	<input
 		class="input w-full border border-base-200"
 		placeholder="Filter pokemon..."

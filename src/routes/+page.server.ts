@@ -13,12 +13,10 @@ export async function load({ fetch }: PageServerLoadEvent) {
 }
 
 export const actions = {
-	filter: async ({ request, fetch }: RequestEvent) => {
+	default: async ({ request, fetch }: RequestEvent) => {
 		const data = await request.formData();
 
 		const filteredValue = data.get('filter');
-
-		console.log(filteredValue);
 
 		const response = await fetch(`${API_URL}/pokemons/filter?filter=${filteredValue}`);
 
