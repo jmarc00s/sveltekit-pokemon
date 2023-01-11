@@ -7,8 +7,8 @@ export async function load({ fetch, url }: PageServerLoadEvent) {
 	const page = url.searchParams.get('page');
 	let response;
 
-	if (page) response = await fetch(`http://localhost:4000/pokemons/paged?page=${page}&size=20`);
-	else response = await fetch('http://localhost:4000/pokemons/paged?page=0&size=20');
+	if (page) response = await fetch(`${API_URL}/pokemons/paged?page=${page}&size=20`);
+	else response = await fetch(`${API_URL}/pokemons/paged?page=0&size=20`);
 
 	const pokemons = (await response.json()) as Pokemon[];
 

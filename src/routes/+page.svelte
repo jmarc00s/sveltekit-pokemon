@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
-	import { goto } from '$app/navigation';
 	import Pagination from '$lib/components/Pagination.svelte';
 	import PokemonFilter from '$lib/components/PokemonFilter.svelte';
 	import PokemonGrid from '$lib/components/PokemonGrid.svelte';
