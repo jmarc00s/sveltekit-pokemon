@@ -10,6 +10,10 @@
 	export let form: ActionData;
 </script>
 
+<svelte:head>
+	<title>Sveltekit - Pokemon - Home</title>
+</svelte:head>
+
 {#if form?.pokemons}
 	<h1 class="text-2xl font-semibold">
 		Filtered by: <span class="font-bold underline"> {form.filteredValue}</span>
